@@ -5,6 +5,7 @@ import br.com.alura.screensound.model.Musica;
 import br.com.alura.screensound.model.TipoArtista;
 import br.com.alura.screensound.repository.ArtistaRepository;
 import br.com.alura.screensound.service.ConsultaChatGPT;
+import br.com.alura.screensound.service.ConsultaGemini;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +30,8 @@ public class Principal {
                     2- Cadastrar músicas
                     3- Listar músicas
                     4- Buscar músicas por artistas
-                    5- Pesquisar dados sobre um artista
+                    5- Pesquisar dados sobre um artista com GEMINI
+                    6- Pesquisar dados sobre um artista com ChatGPT
                                     
                     9 - Sair
                     """;
@@ -52,8 +54,10 @@ public class Principal {
                     buscarMusicasPorArtista();
                     break;
                 case 5:
-                    pesquisarDadosDoArtista();
+                    pesquisarDadosDoArtistaGemini();
                     break;
+                case 6:
+                    pesquisarDadosDoArtistaChatGPT();
                 case 9:
                     System.out.println("Encerrando a aplicação!");
                     break;
@@ -63,10 +67,19 @@ public class Principal {
         }
     }
 
-    private void pesquisarDadosDoArtista() {
+    private void pesquisarDadosDoArtistaChatGPT() {
+        System.out.println("===========ChatGPT===========");
         System.out.println("Pesquisar dados sobre qual artista? ");
         var nome = leitura.nextLine();
         var resposta = ConsultaChatGPT.obterInformacao(nome);
+        System.out.println(resposta.trim());
+    }
+
+    private void pesquisarDadosDoArtistaGemini() {
+        System.out.println("===========Gemini===========");
+        System.out.println("Pesquisar dados sobre qual artista? ");
+        var nome = leitura.nextLine();
+        var resposta = ConsultaGemini.obterInfomacao(nome);
         System.out.println(resposta.trim());
     }
 

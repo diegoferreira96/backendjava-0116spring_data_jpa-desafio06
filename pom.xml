@@ -31,14 +31,23 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>dev.langchain4j</groupId>
+			<artifactId>langchain4j-google-ai-gemini</artifactId>
+			<version>1.0.0-alpha1</version> <!-- Verifique a versão mais recente no Maven Central -->
+		</dependency>
 		<dependency>
 			<groupId>com.theokanning.openai-gpt3-java</groupId>
 			<artifactId>service</artifactId>
 			<version>0.14.0</version>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>io.github.cdimascio</groupId>
+			<artifactId>java-dotenv</artifactId>
+			<version>5.2.2</version> <!-- Utilize a versão estável mais recente -->
+		</dependency>
 
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
